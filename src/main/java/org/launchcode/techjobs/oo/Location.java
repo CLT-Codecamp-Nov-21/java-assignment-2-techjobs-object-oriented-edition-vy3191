@@ -20,9 +20,9 @@ public class Location {
     }
 
     // Custom toString, equals, and hashCode methods:
-
     @Override
     public String toString() {
+
         return value;
     }
 
@@ -40,7 +40,6 @@ public class Location {
     }
 
     // Getters and Setters:
-
     public int getId() {
         return id;
     }

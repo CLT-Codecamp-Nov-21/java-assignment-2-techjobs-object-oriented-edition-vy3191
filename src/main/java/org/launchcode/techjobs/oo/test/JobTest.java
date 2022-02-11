@@ -7,29 +7,24 @@ import org.junit.runners.JUnit4;
 import org.launchcode.techjobs.oo.*;
 
 import static org.junit.Assert.*;
-
 /**
  * Created by LaunchCode
  */
 @RunWith(JUnit4.class)
 public class JobTest {
-    Job myJob1;
-    Job myJob2;
     Job actualJob;
     Job actualJob1;
     @Before
      public void createJobObject() {
-        myJob1 = new Job();
-        myJob2 = new Job();
         actualJob = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         actualJob1 = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
 
     @Test
     public void testSettingJobId() {
-        assertEquals(myJob1.getId(), 1);
-        assertEquals(myJob2.getId(), 2);
-        assertEquals(myJob2.getId() - myJob1.getId(), 1, .01);
+        Job myJob1 = new Job();
+        Job myJob2 = new Job();
+        assertNotEquals(myJob2.getId(), myJob1.getId());
 
     }
 
@@ -41,6 +36,12 @@ public class JobTest {
         assertEquals(actualJob.getLocation().getValue(), "Desert");
         assertEquals(actualJob.getPositionType().getValue(), "Quality control");
         assertEquals(actualJob.getCoreCompetency().getValue(), "Persistence");
+
+        assertTrue(actualJob.getName() instanceof String);
+        assertTrue(actualJob.getEmployer() instanceof Employer);
+        assertTrue(actualJob.getLocation() instanceof Location);
+        assertTrue(actualJob.getPositionType() instanceof PositionType);
+        assertTrue(actualJob.getCoreCompetency() instanceof CoreCompetency);
 
     }
 
