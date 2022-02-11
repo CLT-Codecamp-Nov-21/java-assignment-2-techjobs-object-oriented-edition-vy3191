@@ -48,5 +48,32 @@ public class JobTest {
     @Test
     public void testJobsForEquality() {
         assertNotEquals(actualJob, actualJob1);
+        assertFalse(actualJob.equals(actualJob1));
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        String objString = actualJob.toString();
+        char first = objString.charAt(0);
+        char last =  objString.charAt(objString.length() - 1)  ;
+        char expectedValue = '\n';
+
+        assertEquals(expectedValue, first);
+        assertEquals(expectedValue, last);
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        String objString = actualJob.toString();
+        String expectedString = "\n" +
+                "ID: " +  actualJob.getId() + "\n"+
+                "Name: " + "product tester" + "\n"+
+                "Employer: " + "ACME" + "\n" +
+                "Location: " + "Desert" + "\n" +
+                "Position Type: " + "Quality control"+ "\n" +
+                "Core Competency: " + "Persistence" + "\n";
+
+        assertEquals(expectedString, objString);
+
     }
 }
