@@ -74,6 +74,20 @@ public class JobTest {
                 "Core Competency: " + "Persistence" + "\n";
 
         assertEquals(expectedString, objString);
+    }
 
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job newJobWithEmptyFields = new Job("", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String newJobStr = newJobWithEmptyFields.toString();
+        String expectedString = "\n" +
+                "ID: " +  newJobWithEmptyFields.getId() + "\n"+
+                "Name: " + "Data not available" + "\n"+
+                "Employer: " + "ACME" + "\n" +
+                "Location: " + "Data not available" + "\n" +
+                "Position Type: " + "Quality control"+ "\n" +
+                "Core Competency: " + "Persistence" + "\n";
+
+        assertEquals(expectedString, newJobStr);
     }
 }

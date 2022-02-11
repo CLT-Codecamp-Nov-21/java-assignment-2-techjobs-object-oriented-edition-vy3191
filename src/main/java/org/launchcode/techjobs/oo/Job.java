@@ -31,13 +31,20 @@ public class Job {
 
     @Override
     public String toString() {
+        String str = "Data not available";
+        String name = this.getName().length() > 0 ? this.getName(): str;
+        String emp = this.getEmployer().getValue().length() > 0 ? this.getEmployer().getValue() : str;
+        String location = this.getLocation().getValue().length() > 0? this.getLocation().getValue() : str;
+        String position = this.getPositionType().getValue().length() > 0 ? this.getPositionType().getValue() : str;
+        String competency = this.getCoreCompetency().getValue().length() > 0 ? this.getCoreCompetency().getValue() : str;
+
         return "\n" +
                 "ID: " +  this.getId() + "\n"+
-                "Name: " + this.getName() + "\n"+
-                "Employer: " + this.getEmployer().getValue() + "\n" +
-                "Location: " + this.getLocation().getValue() + "\n" +
-                "Position Type: " + this.getPositionType().getValue() + "\n" +
-                "Core Competency: " + this.getCoreCompetency().getValue() + "\n";
+                "Name: " + name + "\n"+
+                "Employer: " + emp + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + position + "\n" +
+                "Core Competency: " + competency + "\n";
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
